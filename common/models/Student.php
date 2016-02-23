@@ -39,6 +39,8 @@ use backend\models\StudentEquipment;
 class Student extends ActiveRecord implements IdentityInterface{
     
     const STATUS_ACTIVE = 10;
+    const ROLE_STUDENT = 10;
+    const ROLE_TEACHER = 20;
     
     /**
      * @inheritdoc
@@ -142,6 +144,17 @@ class Student extends ActiveRecord implements IdentityInterface{
     public static function findByUsername($username)
     {
         return static::findOne(['username' => $username, 'status_id' => self::STATUS_ACTIVE]);
+    }
+    
+    
+    public static function isUserStudent($username)
+    {
+          if (static::findOne(['username' => $username, 'role_id' => self::ROLE_STUDENT])){
+                 return true;
+          } else {
+                 return false;
+          }
+
     }
 
     /**
@@ -347,4 +360,6 @@ class Student extends ActiveRecord implements IdentityInterface{
     $options = [];
     return Html::a($this->email, $url, $options);
     }
+    
+
 }

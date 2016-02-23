@@ -74,6 +74,11 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+    
+     public function actionTeacherIndex()
+    {
+        return $this->render('index2');
+    }
 
     /**
      * Logs in a user.
@@ -90,10 +95,21 @@ class SiteController extends Controller
         // if (isset_post loginform)form login
         // before loginform works to login() method, $this->validate() means 
         // login form object has passed rules of validation
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+       
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->login()) {
+                return $this->render('index', [
+                'model' => $model,
+            ]);
+            } else {
+                return $this->render('index2', [
+                'model' => $model,
+            ]);
+            }
             // $this->goHome means redirect to home page if valid
             // goHome also works
-            return $this->goBack();
+            // login in as student
+            
         } else {
             // display the login form
             return $this->render('login', [

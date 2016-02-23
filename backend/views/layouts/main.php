@@ -61,6 +61,75 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+        <?php
+    if (!Yii::$app->user->isGuest){
+        echo '<!--sidebar start-->
+   <div class="container">
+   <div class="container-fluid">
+      <aside>
+          <div class="row-fluid">
+               <div class="nav-collapse col-sm-2">
+               <div class="well">
+              <!-- sidebar menu start-->
+              <ul class="nav-list nav">                
+                  <li>
+                    <label class="tree-toggle nav-header">Bootstrap</label>
+                    <ul class="nav nav-list tree">
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">CSS</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <label class="tree-toggle nav-header">Buttons</label>
+                            <ul class="nav nav-list tree">
+                                <li><a href="#">Colors</a></li>
+                                <li><a href="#">Sizes</a></li>
+            
+                            </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <label class="tree-toggle nav-header">Andre</label>
+                        <ul class="nav nav-list tree">
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">CSS</a></li>
+                       
+                    </ul>
+                  </li> 
+                   <li>
+                      <label class="tree-toggle nav-header">Button3</label>
+                            <ul class="nav nav-list tree">
+                                <li><a href="#">Colors</a></li>
+                                <li><a href="#">Sizes</a></li>
+            
+                            </ul>
+                  </li>
+                   <li><label class="tree-toggle nav-header">Buttons</label>
+                            <ul class="nav nav-list tree">
+                                <li><a href="#">Colors</a></li>
+                                <li><a href="#">Sizes</a></li> 
+                            </ul>
+                        </li>
+                        <li><label class="tree-toggle nav-header">Forms</label>
+                                    <ul class="nav nav-list tree">
+                                        <li><a href="#">Horizontal</a></li>
+                                        <li><a href="#">Vertical</a></li>
+                                    </ul>
+                        </li>
+                        
+                    <li><label class="tree-toggle nav-header">Buttons</label>
+                            <ul class="nav nav-list tree">
+                                <li><a href="#">Colors</a></li>
+                                <li><a href="#">Sizes</a></li> 
+                            </ul>
+                    </li>
+              </ul>
+            </div>
+              <!-- sidebar menu end-->
+          </div>
+        </div>
+      </aside>';
+        }    
+        ?>
     <div class="container">
         <?= Alert::widget() ?>
         <br>
