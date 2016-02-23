@@ -13,9 +13,12 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true])
-            ->hint('Please enter the national number')->label('National number')  ?>
+            ->hint('Please enter the national number')->label('National number:')  ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    
+    
+    <?= $form->field($model, 'role')->textInput() ?>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
 

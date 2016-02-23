@@ -11,7 +11,10 @@ $this->title = 'My Application';
 
         <p class="lead">You have successfully log in as admin.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/roleLogin/web/admin.php?r=student%2Fcreate">Get started with add new student</a></p>
+        <p>
+            <a class="btn btn-lg btn-success" 
+               href="http://localhost/roleLogin/web/admin.php?r=student%2Fcreate">
+                Add new employee and students</a></p>
     </div>
 
     <div class="body-content">
