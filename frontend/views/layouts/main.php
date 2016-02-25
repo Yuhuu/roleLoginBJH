@@ -63,6 +63,8 @@ AppAsset::register($this);
     NavBar::end();
     ?>
     <?php
+    
+    // only log inn user can see this sidebar
     if (!Yii::$app->user->isGuest){
         echo '<!--sidebar start-->
    <div class="container">
