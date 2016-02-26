@@ -16,7 +16,8 @@ use phpexcel\Classes\PHPExcel;
             ->hint('Please enter the national number')->label('National number')  ?>
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'role')->textInput() ?>
-    <?= $form->field($model, 'password')->passwordInput() ?>
+    
+
 
    <div class="form-group">
         <?= Html::submitButton('submit', ['class' => 'btn btn-success']) ?>

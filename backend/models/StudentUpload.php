@@ -4,8 +4,6 @@ namespace backend\models;
 
 use common\models\Student;
 use yii\base\Model;
-use phpexcel\Classes\PHPExcel;
-use backend\models\StudentCreate;
 
 //use common\models\Student;
 /**
@@ -13,31 +11,31 @@ use backend\models\StudentCreate;
  * Form model to enforce validation rules or other methods
  * data comes in from a controller
  */
-class StudentUpload extends Model {
+class StudentUpload extends StudentCreate {
 
     public $username;
     public $email;
     public $password;
     public $role;
-    public $StudentCreate;
 
-    public function rules() {
-        return [
-            ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\Student', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
-            ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
-            ['email', 'string', 'max' => 255],
-//            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
-            ['role', 'required'],
-            ['role', 'string', 'min' => 2],
-        ];
-    }
+//    public function rules() {
+//        return [
+//            ['username', 'filter', 'filter' => 'trim'],
+//            ['username', 'required'],
+////            Todo
+////            ['username', 'unique', 'targetClass' => '\common\models\Student', 'message' => 'This username has already been taken.'],
+//            ['username', 'string', 'min' => 2, 'max' => 255],
+//            ['email', 'filter', 'filter' => 'trim'],
+//            ['email', 'required'],
+//            ['email', 'email'],
+//            ['email', 'string', 'max' => 255],
+////            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+//            ['password', 'required'],
+//            ['password', 'string', 'min' => 6],
+//            ['role', 'required'],
+//            ['role', 'string', 'min' => 2],
+//        ];
+//    }
 
     public function getUploadFiledata() {
         try {
@@ -63,16 +61,16 @@ class StudentUpload extends Model {
             echo '<table class="table">';
             for ($col = 'A'; $col <= $highestColumn; ++$col) {
                 echo "<tr>";
-                if ($col == 'B') {
+                if ($col == 'A') {
                     $this->username = $sheetData->getCell($col . $row)
                             ->getValue();
-                } elseif ($col == 'D') {
+                } elseif ($col == 'B') {
                     $this->password = $sheetData->getCell($col . $row)
                             ->getValue();
-                } elseif ($col == 'F') {
+                } elseif ($col == 'C') {
                     $this->email = $sheetData->getCell($col . $row)
                             ->getValue();
-                } elseif ($col == 'G') {
+                } elseif ($col == 'D') {
                     $this->role = $sheetData->getCell($col . $row)
                             ->getValue();
                 } else {
@@ -93,28 +91,43 @@ class StudentUpload extends Model {
         $highestRow = $sheetData->getHighestRow(); // e.g. 12
         $highestColumn = $sheetData->getHighestDataColumn(); // e.g 'I'
         $highestColumn++;
+        $bool = false;
         for ($row = 1; $row <= $highestRow; ++$row) {
-            $this->StudentCreate = new StudentCreate();
             for ($col = 'A'; $col <= $highestColumn; ++$col) {    
-                if ($col == 'B') {
-                    $this->StudentCreate->username = $sheetData->getCell($col . $row)->getValue();
+                if ($col == 'A') {
+                    $this->username = $sheetData->getCell($col . $row)->getValue();
+                } elseif ($col == 'B') {
+                    $this->password = $sheetData->getCell($col . $row)->getValue();
+                } elseif ($col == 'C') {
+                    $this->email = $sheetData->getCell($col . $row)->getValue();
                 } elseif ($col == 'D') {
-                    $this->StudentCreate->password = $sheetData->getCell($col . $row)->getValue();
-                } elseif ($col == 'F') {
-                    $this->StudentCreate->email = $sheetData->getCell($col . $row)->getValue();
-                } elseif ($col == 'G') {
-                    $this->StudentCreate->role = $sheetData->getCell($col . $row)->getValue();
+                    $this->role = $sheetData->getCell($col . $row)->getValue();
                 } else {
                     continue;
                 }
             }
-//            print_r($this->StudentCreate);
-            $this->StudentCreate->signup();
-//            if ($this->StudentCreate->signup()) {
-//                return true;
-//            }
+                 if ($this->signup()) {
+                    $bool = true;
+            }
         }
-//         return false;
+         return $bool;
     }
-
+    
+      public function signup2() {
+            // TODO   add try and catch
+            $user = new Student();
+            $user->username = $this->username;
+            $user->email = $this->email;
+            $user->password = $this->password;
+            $user->generateAuthKey();
+            $user->user_type_id = 10;
+            $user->role_id = $this->role;
+            $user->created_at = 1;
+            $user->updated_at = 1;     
+            if ($user->save()) {
+                return $user;
+            } else {
+                return null;
+            }  
+    }
 }

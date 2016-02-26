@@ -9,10 +9,11 @@ use backend\models\StudentUpload;
 use common\models\StudentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
 use phpexcel\Classes\PHPExcel;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 /**
  * StudentController implements the CRUD actions for Student model.
  */
@@ -21,6 +22,20 @@ class StudentController extends Controller
     public function behaviors()
     {
         return [
+              'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['view', 'index','create','upload','uploadform','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -118,8 +133,12 @@ class StudentController extends Controller
         if (Yii::$app->request->isPost) {
                     if ($model->insertData()) {
                     // data is uploaded successfully to db
+                    
                     Yii::$app->session->setFlash('success', ' Greate! You had added USERS.');
+                    return $this->redirect(['index']);
+                    
                     } else {
+            
                     Yii::$app->session->setFlash('success', ' Sorry! You had not added any USERS.');
                     }
      }

@@ -16,14 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
  <h1><?= Html::encode($this->title) ?></h1>
  <?php $form = ActiveForm::begin(); ?>
  <?php   
-//        $model = new StudentUpload();
   $model->displayData();
  ?>
-  <?php 
-  $model->insertData();
-  ?>
-
-
 
    <div class="form-group">
         <?= Html::submitButton('Yes, want to insert to database', ['class' => 'btn btn-default']) ?>

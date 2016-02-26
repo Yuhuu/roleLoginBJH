@@ -59,12 +59,12 @@ class StudentCreate extends Model
             $user->role_id = $this->role;
             $user->created_at = 1;
             $user->updated_at = 1;
-            $user->save();
-//            if ($user->save()) {
-//                return $user;
-//            }
+//          $user->save();
+            if ($user->save()) {
+                return $user;
+            }
+            
         }
-
         return null;
     }
 }
