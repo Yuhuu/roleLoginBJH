@@ -2,9 +2,8 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use backend\models\StudentUpload;
-
-
+use yii\widgets\DetailView;
+use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model common\models\StudentUpload */
 
@@ -20,6 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
 //        $model = new StudentUpload();
   $model->displayData();
  ?>
+  <?php 
+  $model->insertData();
+  ?>
+
+
+
    <div class="form-group">
         <?= Html::submitButton('Yes, want to insert to database', ['class' => 'btn btn-default']) ?>
     </div>

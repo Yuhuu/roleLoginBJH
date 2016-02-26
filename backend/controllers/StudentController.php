@@ -71,13 +71,17 @@ class StudentController extends Controller
                 if (Yii::$app->getUser()->login($user)) {
                     Yii::$app->session->setFlash('success', 'You had added an user.');
 //                    Yii::$app->session->setFlash('errors', 'Data is registed ');
-                      
                 }
+            }
+            else {
+                $this->render('create', [
+                'model' => $model,
+                ]);
+                Yii::$app->session->setFlash('errors', 'Data is not registed ');
             }
      }
     return $this->render('create', [
-                'model' => $model,
-    ]);
+                'model' => $model]);
     }
     
       /**
@@ -93,73 +97,37 @@ class StudentController extends Controller
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
             if ($model->upload()) {
-                // file is uploaded successfully
+                    // file is uploaded successfully
                  Yii::$app->session->setFlash('success', 'You had added USERS file.');
 }           return $this->redirect(['upload']);
             }
     return $this->render('upload', ['model' => $model]);
     }
     
+       /**
+     * Updates an existing Student model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
 
      public function actionUpload()
     {
         $model = new StudentUpload();
 
         if (Yii::$app->request->isPost) {
-            if ($model->create()){
-                 Yii::$app->session->setFlash('success', ' Greate! You had added USERS.');
-            }
+                    if ($model->insertData()) {
+                    // data is uploaded successfully to db
+                    Yii::$app->session->setFlash('success', ' Greate! You had added USERS.');
+                    } else {
+                    Yii::$app->session->setFlash('success', ' Sorry! You had not added any USERS.');
+                    }
      }
-    return $this->render('readUpload', [
+        return $this->render('readUpload', [
                 'model' => $model,
     ]);
     }
     
-//     public function actionUploadFile()
-// {
-//        $objPHPExcel = new \PHPExcel();
-//        $objPHPExcel = \PHPExcel_IOFactory::load(\Yii::getAlias
-//                  ('@webroot/uploads/test.xlsx'));
-//        $sheetData = $objPHPExcel->getActiveSheet();
-//        // Get the highest row number and column letter referenced in the worksheet
-//        $highestRow = $sheetData->getHighestRow(); // e.g. 12
-//        $highestColumn = $sheetData->getHighestColumn(); // e.g 'I'
-//        // Increment the highest column letter
-//        $highestColumn++;
-//
-//for ($row = 1; $row <= $highestRow; ++$row) {
-//
-//    $item = new Student();
-//    for ($col = 'A'; $col != $highestColumn; ++$col) {
-//    if($col=='B'){
-//    $item->username=
-//             $sheetData->getCell($col . $row)
-//                 ->getValue();}
-//    elseif ($col=='D'){
-//    $item->password_hash=
-//              $sheetData->getCell($col . $row)
-//                 ->getValue();}
-//    elseif ($col=='F'){
-//    $item->email=
-//             $sheetData->getCell($col . $row)
-//                 ->getValue();}
-//    elseif ($col=='G'){
-//    $item->role_id=
-//             $sheetData->getCell($col . $row)
-//                 ->getValue();
-//    } else{
-//        break;
-//    }
-//    }
-//     $item->user_type_id = 10;
-//            $item->created_at = 1;
-//            $item->updated_at = 1;
-//            $item->generateAuthKey();
-//            $item->status_id= 10;
-//       $item->save();
-//}
-//}
-   
      /**
      * Updates an existing Student model.
      * If update is successful, the browser will be redirected to the 'view' page.
