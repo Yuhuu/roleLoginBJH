@@ -3,16 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/studentEquipment/create.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/controllers/SiteController.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/StudentUpload.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/index.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/StudentCreate.php</file>
-            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/update.php</file>
-            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/upload.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/controllers/StudentEquipmentController.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/Role.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/readUpload.php</file>
-            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/UploadForm.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/StudentEquipmentSearch.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/web/index.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/controllers/StudentController.php</file>
             <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/create.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/site/index.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/config/main-local.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/StudentEquipment.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/studentEquipment/index.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/assets/AppAsset.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/studentEquipment/_search.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/update.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/student/upload.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/config/main.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/views/studentEquipment/update.php</file>
+            <file>file:/Applications/XAMPP/htdocs/roleLogin/backend/models/UploadForm.php</file>
         </group>
     </open-files>
 </project-private>

@@ -47,6 +47,7 @@ class StudentUpload extends StudentCreate {
         }
         $sheetData = $objPHPExcel->getActiveSheet();
         return $sheetData;
+        //array data
     }
 
     public function displayData() {

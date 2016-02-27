@@ -11,7 +11,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use backend\models\UploadForm;
 use yii\web\UploadedFile;
-use phpexcel\Classes\PHPExcel;
+//use phpexcel\Classes\PHPExcel;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 /**
