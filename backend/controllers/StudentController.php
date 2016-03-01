@@ -14,35 +14,46 @@ use yii\web\UploadedFile;
 //use phpexcel\Classes\PHPExcel;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\rest\ActiveController;
 /**
  * StudentController implements the CRUD actions for Student model.
  */
-class StudentController extends Controller
+
+
+class StudentController extends ActiveController
 {
+    
+    public $modelClass = 'common\models\Student';
     public function behaviors()
     {
-        return [
-              'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['index'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['view', 'index','create','upload','uploadform','update'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+//        return [
+//              'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['index'],
+//                        'allow' => true,
+//                    ],
+//                    [
+//                        'actions' => ['view', 'index','create','upload','uploadform','update'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+          return 
+        \yii\helpers\ArrayHelper::merge(parent::behaviors(), [
+            'corsFilter' => [
+                'class' => \yii\filters\Cors::className(),
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
+        ]);
     }
 
     /**
@@ -136,9 +147,7 @@ class StudentController extends Controller
                     
                     Yii::$app->session->setFlash('success', ' Greate! You had added USERS.');
                     return $this->redirect(['index']);
-                    
                     } else {
-            
                     Yii::$app->session->setFlash('success', ' Sorry! You had not added any USERS.');
                     }
      }

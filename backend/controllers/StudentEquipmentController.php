@@ -3,42 +3,51 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\StudentEquipment;
-use backend\models\StudentEquipmentSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+//use backend\models\StudentEquipment;
+//use backend\models\StudentEquipmentSearch;
+use yii\rest\ActiveController;
+
 
 /**
  * StudentEquipmentController implements the CRUD actions for StudentEquipment model.
  */
-class StudentEquipmentController extends Controller
+class StudentEquipmentController extends ActiveController
 {
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['view', 'index','create','update'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
+    public $modelClass = 'backend\models\StudentEquipment';
+        
+        public function behaviors()
+        {
+            return 
+            \yii\helpers\ArrayHelper::merge(parent::behaviors(), [
+                'corsFilter' => [
+                    'class' => \yii\filters\Cors::className(),
                 ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
-    }
+            ]);
+        }
+        
+//        [
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['login', 'error'],
+//                        'allow' => true,
+//                    ],
+//                    [
+//                        'actions' => ['view', 'index','create', 'update'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
 
     /**
      * Lists all StudentEquipment models.

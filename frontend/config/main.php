@@ -14,7 +14,9 @@ return [
     'components' => [
         'user' => [
             'identityClass' => 'common\models\Student',
-            'enableAutoLogin' => true,
+//            'enableAutoLogin' => true, we won´ use cookies for anth
+                'enableSession' => false,
+            'loginUrl' => null,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -28,6 +30,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
+            'showScriptName' => false,
+//            'rules' => [
+//                'class' => 'yii\rest\UrlRule', 
+//                    'controller' => 
+//                          ['student' => 'student'],
+//            ],
+        ],    
     ],
     'params' => $params,
 ];

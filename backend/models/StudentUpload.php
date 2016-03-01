@@ -36,6 +36,12 @@ class StudentUpload extends StudentCreate {
 //            ['role', 'string', 'min' => 2],
 //        ];
 //    }
+    
+    
+//     public function __construct(){
+//         $this->signup();
+//     }
+
 
     public function getUploadFiledata() {
         try {
@@ -114,21 +120,21 @@ class StudentUpload extends StudentCreate {
          return $bool;
     }
     
-      public function signup2() {
-            // TODO   add try and catch
-            $user = new Student();
-            $user->username = $this->username;
-            $user->email = $this->email;
-            $user->password = $this->password;
-            $user->generateAuthKey();
-            $user->user_type_id = 10;
-            $user->role_id = $this->role;
-            $user->created_at = 1;
-            $user->updated_at = 1;     
-            if ($user->save()) {
-                return $user;
-            } else {
-                return null;
-            }  
-    }
+//      public function signup23() {
+//            // TODO   add try and catch
+//            $user = new Student();
+//            $user->username = $this->username;
+//            $user->email = $this->email;
+//            $user->password = $this->password;
+//            $user->generateAuthKey();
+//            $user->user_type_id = 10;
+//            $user->role_id = $this->role;
+//            $user->created_at = 11234;
+//            $user->updated_at = 11234;     
+//            if ($user->save()) {
+//                return $user;
+//            } else {
+//                return null;
+//            }  
+//    }
 }

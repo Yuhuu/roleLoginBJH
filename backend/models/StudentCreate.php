@@ -30,7 +30,7 @@ class StudentCreate extends Model
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
-            ['email', 'email'],
+//            ['email', 'email'],
             ['email', 'string', 'max' => 255],
 //            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
@@ -49,7 +49,9 @@ class StudentCreate extends Model
      */
     public function signup()
     {
-        if ($this->validate()) {
+        
+//        This helpe Student uoload to validate data
+//        if ($this->validate()) {
             $user = new Student();
             $user->username = $this->username;
             $user->email = $this->email;
@@ -59,12 +61,12 @@ class StudentCreate extends Model
             $user->role_id = $this->role;
             $user->created_at = 1;
             $user->updated_at = 1;
-//          $user->save();
-            if ($user->save()) {
-                return $user;
-            }
-            
+//            $user->save();
+        if ($user->save()) {
+            return $user;
+        } else {
+//        }
+            return null;
         }
-        return null;
     }
 }

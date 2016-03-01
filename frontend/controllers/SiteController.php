@@ -72,63 +72,69 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->renderContent(null);
     }
     
-     public function actionTeacherIndex()
-    {
-        return $this->render('index2');
-    }
-
-    /**
-     * Logs in a user.
+      /**
+     * Displays none when angular is in use.
      *
-     * @return mixed
+  
      */
-    public function actionLogin()
-    {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new LoginForm();
-        // if (isset_post loginform)form login
-        // before loginform works to login() method, $this->validate() means 
-        // login form object has passed rules of validation
-       
-        if ($model->load(Yii::$app->request->post())) {
-            if($model->login()) {
-                return $this->render('index', [
-                'model' => $model,
-            ]);
-            } else {
-                return $this->render('index2', [
-                'model' => $model,
-            ]);
-            }
-            // $this->goHome means redirect to home page if valid
-            // goHome also works
-            // login in as student
-            
-        } else {
-            // display the login form
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Logs out the current user.
-     *
-     * @return mixed
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
+    
+//     public function actionTeacherIndex()
+//    {
+//        return $this->render('index2');
+//    }
+//
+//    /**
+//     * Logs in a user.
+//     *
+//     * @return mixed
+//     */
+//    public function actionLogin()
+//    {
+//        if (!\Yii::$app->user->isGuest) {
+//            return $this->goHome();
+//        }
+//
+//        $model = new LoginForm();
+//        // if (isset_post loginform)form login
+//        // before loginform works to login() method, $this->validate() means 
+//        // login form object has passed rules of validation
+//       
+//        if ($model->load(Yii::$app->request->post())) {
+//            if($model->login()) {
+//                return $this->render('index', [
+//                'model' => $model,
+//            ]);
+//            } else {
+//                return $this->render('index2', [
+//                'model' => $model,
+//            ]);
+//            }
+//            // $this->goHome means redirect to home page if valid
+//            // goHome also works
+//            // login in as student
+//            
+//        } else {
+//            // display the login form
+//            return $this->render('login', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
+//
+//    /**
+//     * Logs out the current user.
+//     *
+//     * @return mixed
+//     */
+//    public function actionLogout()
+//    {
+//        Yii::$app->user->logout();
+//
+//        return $this->goHome();
+//    }
 
     /**
      * Displays contact page. 
