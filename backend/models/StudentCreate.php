@@ -38,7 +38,7 @@ class StudentCreate extends Model
             ['password', 'string', 'min' => 6],
             
             ['role', 'required'],
-            ['role', 'string', 'min' => 2],
+            ['role', 'string', 'min' => 2]
         ];
     }
 
@@ -61,6 +61,7 @@ class StudentCreate extends Model
             $user->role_id = $this->role;
             $user->created_at = 1;
             $user->updated_at = 1;
+          
 //            $user->save();
         if ($user->save()) {
             return $user;

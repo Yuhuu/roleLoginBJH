@@ -10,15 +10,14 @@
 /* global angular */
 
 //(function(){
-
-    'use strict';
 // adjust to the your url of web service
-    var serviceBase = 'http://localhost/roleLogin/backend/web/'
+  
     var app = angular.module('atTheStudents',[
         'ngRoute',
+        'ngAnimate',
         // sub module
         'mgcrea.ngStrap',   //bs-navbar, data-match-route directives
-        'controllers'       //Our module frontend/web/js/controllers.js
+        'controllerJS'       //Our module frontend/web/js/controllers.js
 ]);
 //   Configuration blocks get executed during the provider 
 //   registrations and configuration phase. Only providers 
@@ -58,7 +57,7 @@ app.factory('authInterceptor', function ($q, $window, $location) {
         }
     };
 });
-//}());
+
 
 
     

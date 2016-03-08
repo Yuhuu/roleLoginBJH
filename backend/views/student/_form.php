@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use phpexcel\Classes\PHPExcel;
+//use phpexcel\Classes\PHPExcel;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Student */
@@ -16,9 +16,7 @@ use phpexcel\Classes\PHPExcel;
             ->hint('Please enter the national number')->label('National number')  ?>
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'role')->textInput() ?>
-    
-
-
+    <?= $form->field($model, 'class_nr')->textInput() ?>
    <div class="form-group">
         <?= Html::submitButton('submit', ['class' => 'btn btn-success']) ?>
     </div>

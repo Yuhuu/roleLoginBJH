@@ -1,8 +1,7 @@
 
-
-var controllers = angular.module('controllers', []);
-
-controllers.controller('MainController', ['$scope', '$location', '$window',
+var serviceBase = 'http://localhost/roleLogin/backend/web/';
+var controllerJS = angular.module('atTheStudents', ['ngAnimate']);
+controllerJS.controller('MainController', ['$scope', '$location', '$window',
     function ($scope, $location, $window) {
         $scope.loggedIn = function() {
             return Boolean($window.sessionStorage.access_token);
@@ -14,6 +13,21 @@ controllers.controller('MainController', ['$scope', '$location', '$window',
         };
     }
 ]);
+
+//controllerJS.controller('MainController', ['$scope', '$location', '$window',
+//    function ($scope, $location, $window) {
+//        $scope.loggedIn = function() {
+//            return Boolean($window.sessionStorage.access_token);
+//        };
+//
+//        $scope.logout = function () {
+//            delete $window.sessionStorage.access_token;
+//            $location.path('/login').replace();
+//        };
+//    }
+//]);
+
+
 
 //controllers.controller('ContactController', ['$scope', '$http', '$window',
 //    function($scope, $http, $window) {
