@@ -1,0 +1,33 @@
+<div>
+	<h1>Student CRUD</h1>
+	
+	<form role="form" name="myForm">
+		<div class= "form-group" ng-class="{error: myForm.username.$invalid}">
+			<label> username </label>
+			<div>
+			<input name="username" ng-model="student.username" type= "text" class= "form-control" placeholder="username" required/>
+			<span ng-show="myForm.username.$dirty && myForm.username.$invalid" class="help-inline">username Required</span>
+			</div>
+		</div>
+		<div class= "form-group">
+			<label> email </label>
+			<div>
+			<textarea name="email" ng-model="student.email" class= "form-control" placeholder= "email"></textarea>
+			</div>
+		</div>
+		<div class= "form-group" ng-class="{error: myForm.role_id.$invalid}">
+			<label> role_id </label>
+			<div>
+			<input name="role_id" ng-model="student.role_id" type= "text" class= "form-control" placeholder="role_id 10 for student" required/>
+			<span ng-show="myForm.role_id.$dirty && myForm.role_id.$invalid" class="help-inline">role_id Required</span>
+			</div>
+		</div>
+		
+		
+	  
+		<a href="#/student/index" class="btn btn-default">Cancel</a> 
+		<button ng-click="updateStudent(student);" 
+                ng-disabled="isClean() || myForm.$invalid"
+                type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

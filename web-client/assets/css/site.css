@@ -1,0 +1,183 @@
+/*.main-content {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+    -moz-box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+    box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+}
+
+.login-wrapper {
+    padding: 2px 20px 20px 20px;
+    min-width: 300px;
+    color:black;
+}
+
+.padding-top-20 {
+    padding-top: 20px;
+}*/
+
+
+/*
+Copyright(C) 2016.  All rights reserved to Bjørnholt school. 
+https://bjornholt.osloskolen.no/
+@author Created by Bachelor Final Project group 18 at Oslo and Akershus University College 
+Creating interactive web pages using the Angualr framework carried out by:
+Martin Hansen Muren Mathisen (s189116), Waqas Liaqat (s180364), 
+Yuanxin Huang (s184519), Thanh Nguyen Chu (s169954)
+@version 1.01.01
+*/
+/* 
+    Created on : 18.feb.2016, 01:41:11
+    Author     : yuanxinhuang
+*/
+
+body {
+    font-family: 'Lato', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 14px !important;
+    /*background: url(../../web/assets/images/bg.jpg) no-repeat center center fixed;*/ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #D8D8D8;
+}
+// background imagie from <a href='http://www.freepik.com/free-vector/photography-studio-background_
+
+
+.login-wrapper {
+    padding: 2px 20px 20px 20px;
+    min-width: 300px;
+    color:black;
+}
+
+.login-wrapper a {
+    color:white;
+}
+
+.padding-top-20 {
+    padding-top: 30px;
+    
+}
+
+.image-logo {
+    text-align: center;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+    -moz-box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+    box-shadow: 0px 0px 2px 4px rgba(255,255,255, 0.4);
+}
+
+
+.login_box {
+    background-color: #383838;
+    color: white;
+}
+
+
+.btn{
+    border-radius: 0;
+}
+
+.btn-default {
+    padding: 0px;
+}
+
+#content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    text-align: center;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.brandLogo {
+    background-size: 100%;
+    background-image: url("../assets/images/logo_svg.svg");
+    background-repeat: no-repeat;
+    width: 50px;
+}
+
+.info {
+    text-align: center;
+}
+
+.navbar-brand {
+    padding: 0px 15px;
+}
+
+.navigation-bar {
+    background-color: #D8D8D8;
+}
+
+/*@media (min-width:320px) {
+     smartphones portrait mode 
+    .mobile-only-portrait {
+        
+    }
+}
+
+@media (min-width:480px) {
+     smartphones landscape mode 
+    .mobile-only-landscape {
+        
+    }
+}
+
+@media (min-width:600px) {
+    .tablet-only-portrait {
+        
+    }
+}
+
+@media (min-width:801px) {
+    .tablet-only-landscape {
+        
+    }
+}
+
+@media (min-width:1025px) {
+    .desktop-only {
+        text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+}
+
+@media (min-width:1281px) {
+    .hi-res-only {
+        
+    }
+}*/
+
+@media (max-width:600px) {
+    .mobile-only {
+        white-space: nowrap;
+        overflow: visible;
+        
+    }
+    .desktop-only {
+        display: none;
+    }
+}
+
+@media (min-width:601px) {
+    .desktop-only {
+        white-space: nowrap;
+        overflow: visible;
+    }
+    
+    .mobile-only {
+        display: none;
+    }
+}

@@ -53,7 +53,7 @@ return [
              ],
                 [  
                 'class' => 'yii\rest\UrlRule', 
-                'controller' => 'equipment'                   
+                'controller' => 'computer'                   
              ], 
                  
             ],

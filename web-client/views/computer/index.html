@@ -1,0 +1,33 @@
+<div class = "jumbotron">
+	<h1>Computer</h1>	
+	<div ng-show="computers.length > 0">
+	
+<!--            <p>  {{computer_equipment}} </p>   -->
+	<table class="table table-hover">
+	<thead>
+	<th>type</th>
+	<th>computer_status</th>
+	<th>computer_name</th>
+        <th>serial_id</th>
+	<th style="width:80px;">Action</th>
+	</thead>
+        
+	<tbody>
+		<tr ng-repeat="computer in computers">
+			<td><span ng-if="computer.type_id=='10'" class="btn-success btn-sm">
+                                PC
+				</span>
+				<span ng-if="computer.type_id=='20'" class="btn-default btn-sm">
+					Mac
+				</span></td>
+			<td>{{computer.computer_status}}</td>
+			<td>{{computer.computer_name}}</td>
+                        <td>{{computer.serial_id}}</td>
+		</tr>
+	</tbody>
+	</table>
+	</div>
+	<div ng-show="computers.length == 0">
+		Empty
+	</div>
+</div>

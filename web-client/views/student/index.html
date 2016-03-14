@@ -1,0 +1,68 @@
+<div class = "jumbotron">
+	<h1>Student check</h1>	
+	<div ng-show="students.length > 0">
+	<a class="btn btn-primary" href="#/student/create">
+		<i class="glyphicon glyphicon-plus"></i> Create
+	</a>
+            
+        <button class="btn btn-primary" ng-click="checkAll()" >
+            <i class="glyphicon glyphicon-ok-sign"></i> Select all
+	</button>
+        <button class="btn btn-primary" ng-click="uncheckAll()" >
+            <i class="glyphicon glyphicon-remove-sign"></i> Uncheck all
+	</button>
+        <button class="btn btn-success" ng-click="" >
+           submit
+	</button>
+            <p>  {{student_equipment}} </p>   
+	<table class="table table-striped table-hover">
+	<thead>
+	<th>Role</th>
+	<th>Username</th>
+	<th>Email</th>
+        <th>Class</th>
+        <th>Status</th>
+        <th>Computer Type</th>
+	<th style="width:90px;">check this person?</th>
+	<th style="width:80px;">Action</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="student in students">
+			<td><span ng-if="student.role_id=='10'" class="btn-success btn-sm">
+					Student
+				</span>
+				<span ng-if="student.role_id=='20'" class="btn-default btn-sm">
+					Teacher
+				</span></td>
+			<td>{{student.username}}</td>
+			<td>{{student.email}}</td>
+                        <td>{{student.class_nr}}</td>
+                        <td><span ng-if="student.status_id=='10'" class="btn-success btn-sm">
+					Active
+				</span>
+				<span ng-if="student.status_id!='10'" class="btn-default btn-sm">
+					Not active
+				</span>
+                        </td>
+                        <td>Computer Type</td>
+			<td><input id="{{student.id}}" type="checkbox" value="{{student.id}}" 
+                                   data-checklist-model="student_equipment.students" 
+                                   data-checklist-value="student.id">
+	  				<label for="{{student.id}}">ID: {{student.id}}</label>
+                        </td>
+			<td>
+			<a class="btn btn-primary btn-xs" href="#/student/update/{{student.id}}">
+				<i class="glyphicon glyphicon-pencil"></i>
+			</a> 
+			<a class="btn btn-danger btn-xs" ng-click="deleteStudent(student.id)">
+				<i class="glyphicon glyphicon-trash"></i>
+			</a>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+	</div>
+	<div ng-show="students.length == 0">
+	Empty
+	</div>
+</div>
